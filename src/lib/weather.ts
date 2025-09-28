@@ -64,6 +64,11 @@ export async function getWeatherSummary(when: "now" | "later"): Promise<WeatherS
       next: { revalidate: 60 * 60 }, // cache for 1h on server
     });
     const data = (await res.json()) as any;
+    console.log("getWeatherSummary source", {
+      provider: "open-meteo",
+      requestedHour: target.toISOString(),
+      hourlyCount: data?.hourly?.time?.length ?? 0,
+    });
     const hourly = data?.hourly;
     const times: string[] = hourly?.time ?? [];
     // Open-Meteo returns local times per timezone param; match on local hour string
@@ -80,7 +85,7 @@ export async function getWeatherSummary(when: "now" | "later"): Promise<WeatherS
     const code = Number(hourly?.weathercode?.[useIdx] ?? 0);
     const windMph = Number(hourly?.windspeed_10m?.[useIdx] ?? 5);
     const isRaining = weatherCodeIsWet(code) || precipProb >= 50;
-    return {
+    const result = {
       at: times[useIdx] ?? pickHourISO(target),
       tempF,
       precipProb,
@@ -90,7 +95,10 @@ export async function getWeatherSummary(when: "now" | "later"): Promise<WeatherS
       isHot: tempF >= 85,
       isCold: tempF <= 45,
     };
-  } catch {
+    console.log("getWeatherSummary result", result);
+    return result;
+  } catch (err) {
+    console.warn("getWeatherSummary open-meteo failed", err);
     return {
       at: pickHourISO(target),
       tempF: 72,
@@ -186,6 +194,12 @@ export async function getWeekendForecast(): Promise<{ days: WeekendDay[] }> {
     if (!forecastUrl) throw new Error("no forecast url");
     const forecast = await fetch(forecastUrl, { headers: ua, next: { revalidate: 60 * 60 } }).then((r) => r.json());
     const periods: any[] = forecast?.properties?.periods ?? [];
+    console.log("getWeekendForecast source", {
+      provider: "nws",
+      forecastUrl,
+      periodsCount: periods.length,
+      generatedAt: forecast?.properties?.generatedAt,
+    });
 
     const targetDates = getThisWeekendLocalDates();
     const fmt = (d: Date) => d.toISOString().slice(0, 10);
@@ -225,8 +239,10 @@ export async function getWeekendForecast(): Promise<{ days: WeekendDay[] }> {
         summary: label,
       });
     }
+    console.log("getWeekendForecast result", days);
     return { days };
-  } catch {
+  } catch (err) {
+    console.warn("getWeekendForecast NWS failed", err);
     // Fallback to Open-Meteo if NWS fails
     try {
       const dates = getThisWeekendLocalDates();
@@ -244,6 +260,12 @@ export async function getWeekendForecast(): Promise<{ days: WeekendDay[] }> {
       });
       const res = await fetch(`https://api.open-meteo.com/v1/forecast?${params.toString()}`, { next: { revalidate: 60 * 60 } });
       const data = (await res.json()) as any;
+      console.log("getWeekendForecast source", {
+        provider: "open-meteo",
+        start,
+        end,
+        timeCount: data?.daily?.time?.length ?? 0,
+      });
       const d = data?.daily ?? {};
       const out: WeekendDay[] = (d.time ?? []).map((date: string, idx: number) => {
         const dayName = new Date(date + "T00:00:00").toLocaleDateString("en-US", { weekday: "short", timeZone: CHAPEL_HILL.tz });
@@ -258,6 +280,7 @@ export async function getWeekendForecast(): Promise<{ days: WeekendDay[] }> {
           summary: codeLabel(code),
         };
       }).filter((x: WeekendDay) => ["Sat", "Sun"].includes(x.dayName));
+      console.log("getWeekendForecast result", out);
       return { days: out };
     } catch {
       return { days: [] };
@@ -297,6 +320,12 @@ export async function getTodayHighLow(): Promise<TodayHighLow | null> {
     if (!forecastUrl) return null;
     const forecast = await fetch(forecastUrl, { headers: ua, next: { revalidate: 30 * 60 } }).then((r) => r.json());
     const periods: any[] = forecast?.properties?.periods ?? [];
+    console.log("getTodayHighLow source", {
+      provider: "nws",
+      forecastUrl,
+      periodsCount: periods.length,
+      generatedAt: forecast?.properties?.generatedAt,
+    });
 
     const today = localDateYYYYMMDD(CHAPEL_HILL.tz);
     const toLocalYMD = (iso: string) =>
@@ -327,7 +356,7 @@ export async function getTodayHighLow(): Promise<TodayHighLow | null> {
 
     const dayLabel = forToday.find((p) => p.isDaytime)?.shortForecast as string | undefined;
     const summary = dayLabel ?? ((forToday[0]?.shortForecast as string) || "");
-    return {
+    const result = {
       date: today,
       dayName: "Today",
       tempMaxF,
@@ -335,7 +364,10 @@ export async function getTodayHighLow(): Promise<TodayHighLow | null> {
       precipProbMax,
       summary,
     };
-  } catch {
+    console.log("getTodayHighLow result", result);
+    return result;
+  } catch (err) {
+    console.warn("getTodayHighLow NWS failed", err);
     return null;
   }
 }

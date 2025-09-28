@@ -6,6 +6,7 @@ type Activity = {
   name: string;
   type: string;
   costTier: number | null;
+  description?: string | null;
 };
 
 export function ActivityCard({
@@ -49,9 +50,8 @@ export function ActivityCard({
           <span className="uppercase tracking-wide">{activity.type}</span>
           {activity.costTier === 0 && <span className="ml-2 rounded bg-green-50 text-green-700 px-1.5 py-0.5">Free</span>}
         </div>
-        {/** Description if provided */}
-        {(activity as any).description && (
-          <p className="text-sm text-gray-700 mt-2">{(activity as any).description}</p>
+        {activity.description && (
+          <p className="text-sm text-gray-700 mt-2">{activity.description}</p>
         )}
         <div className="text-xs text-gray-600 mt-1">
           {typeof driveMinutes === "number" && (

@@ -13,7 +13,13 @@ export default async function LaterPage() {
         {data.results.map((r) => (
           <ActivityCard
             key={r.activity.id}
-            activity={{ id: r.activity.id, name: r.activity.name, type: r.activity.type, costTier: r.activity.costTier ?? null }}
+            activity={{
+              id: r.activity.id,
+              name: r.activity.name,
+              type: r.activity.type,
+              costTier: r.activity.costTier ?? null,
+              description: r.activity.description ?? null,
+            }}
             reasons={r.reasons}
             distanceMi={r.distanceMi}
           />

@@ -50,7 +50,13 @@ export default async function WeekendPage() {
             return (
               <ActivityCard
                 key={r.activity.id}
-                activity={{ id: r.activity.id, name: r.activity.name, type: r.activity.type, costTier: r.activity.costTier ?? null }}
+                activity={{
+                  id: r.activity.id,
+                  name: r.activity.name,
+                  type: r.activity.type,
+                  costTier: r.activity.costTier ?? null,
+                  description: r.activity.description ?? null,
+                }}
                 reasons={r.reasons}
                 distanceMi={r.distanceMi}
                 driveMinutes={(r as any).driveMinutes}
