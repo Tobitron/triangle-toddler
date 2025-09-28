@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Chapel Hill Community Park",
+    "type": "park",
+    "description": "Large neighborhood park with a toddler-friendly playground and shaded paths. Great for open play, short walks, and easy picnics.",
+    "lat": 35.9308,
+    "lng": -79.0550,
+    "minAgeMonths": 6,
+    "maxAgeMonths": null,
+    "durationMin": 90,
+    "weatherFlags": ["outdoor", "shade"],
+    "costTier": 0,
+    "tags": ["playground", "walk"]
+  },
+  {
+    "name": "Southern Community Park",
+    "type": "park",
+    "description": "Expansive park with fields and a modern playground that’s great for toddlers. Plenty of shade and room to run around.",
+    "lat": 35.8717,
+    "lng": -79.0623,
+    "minAgeMonths": 6,
+    "maxAgeMonths": null,
+    "durationMin": 90,
+    "weatherFlags": ["outdoor", "shade"],
+    "costTier": 0,
+    "tags": ["playground", "fields"]
+  },
+  {
+    "name": "Chapel Hill Public Library",
+    "type": "library",
+    "description": "Bright, kid-focused library with a dedicated children’s area and free storytimes. There’s also an outdoor playground for extra wiggles.",
+    "lat": 35.9324,
+    "lng": -79.0228,
+    "minAgeMonths": 0,
+    "maxAgeMonths": null,
+    "durationMin": 60,
+    "openHoursJson": {
+      "mon": [["09:00","18:00"]],
+      "tue": [["09:00","18:00"]],
+      "wed": [["09:00","18:00"]],
+      "thu": [["09:00","20:00"]],
+      "fri": [["09:00","18:00"]],
+      "sat": [["09:00","18:00"]],
+      "sun": [["12:00","18:00"]]
+    },
+    "weatherFlags": ["indoor"],
+    "costTier": 0,
+    "tags": ["storytime", "books"]
+  },
+  {
+    "name": "Kidzu Children’s Museum",
+    "type": "museum",
+    "description": "Hands-on exhibits that encourage STEM exploration and pretend play for toddlers. A perfect indoor choice for curious little ones.",
+    "lat": 35.9041,
+    "lng": -79.0219,
+    "minAgeMonths": 12,
+    "maxAgeMonths": null,
+    "durationMin": 90,
+    "openHoursJson": {
+      "mon": [],
+      "tue": [["10:00","17:00"]],
+      "wed": [["10:00","17:00"]],
+      "thu": [["10:00","17:00"]],
+      "fri": [["10:00","17:00"]],
+      "sat": [["10:00","17:00"]],
+      "sun": [["12:00","17:00"]]
+    },
+    "weatherFlags": ["indoor"],
+    "costTier": 2,
+    "tags": ["hands-on", "STEM"]
+  },
+  {
+    "name": "Homestead Aquatic Center Splash",
+    "type": "splash",
+    "description": "Seasonal splash and water play ideal for hot days. Shallow features make it friendly for toddlers.",
+    "lat": 35.9567,
+    "lng": -79.0624,
+    "minAgeMonths": 12,
+    "maxAgeMonths": null,
+    "durationMin": 60,
+    "openHoursJson": {
+      "mon": [],
+      "tue": [["12:00","18:00"]],
+      "wed": [["12:00","18:00"]],
+      "thu": [["12:00","18:00"]],
+      "fri": [["12:00","18:00"]],
+      "sat": [["10:00","18:00"]],
+      "sun": [["10:00","18:00"]]
+    },
+    "weatherFlags": ["water", "outdoor"],
+    "costTier": 1,
+    "tags": ["splash", "summer"]
+  },
+  {
+    "name": "Coker Arboretum Walk",
+    "type": "walk",
+    "description": "A peaceful, stroller-friendly loop among trees and gardens. Easy terrain with plenty to explore and smell.",
+    "lat": 35.9139,
+    "lng": -79.0516,
+    "minAgeMonths": 0,
+    "maxAgeMonths": null,
+    "durationMin": 45,
+    "weatherFlags": ["outdoor", "shade"],
+    "costTier": 0,
+    "tags": ["nature", "stroller"]
+  }
+]
