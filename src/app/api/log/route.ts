@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 import { supaServer } from "@/lib/supabase";
+import { getNow } from "@/lib/clock";
 
 export async function POST(req: Request) {
   const body = await req.json().catch(() => ({}));
   const activityId = Number(body.activity_id ?? body.activityId);
   if (!activityId) return NextResponse.json({ error: "activity_id required" }, { status: 400 });
-  const startedAt = body.started_at ? new Date(body.started_at) : new Date();
+  const startedAt = body.started_at ? new Date(body.started_at) : getNow();
   const durationMin = body.duration_min ? Number(body.duration_min) : undefined;
   const rating = body.rating != null ? Number(body.rating) : undefined;
   const notes = typeof body.notes === "string" ? body.notes : undefined;

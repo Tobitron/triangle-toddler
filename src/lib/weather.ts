@@ -1,4 +1,5 @@
 import { CHAPEL_HILL } from "@/constants/location";
+import { getNow } from "@/lib/clock";
 
 export type WeatherSummary = {
   at: string; // ISO timestamp hour
@@ -47,7 +48,7 @@ function localHourISO(date: Date, tz: string) {
 }
 
 export async function getWeatherSummary(when: "now" | "later"): Promise<WeatherSummary> {
-  const now = new Date();
+  const now = getNow();
   const target = new Date(now);
   if (when === "later") target.setHours(now.getHours() + 3);
 
@@ -154,7 +155,7 @@ function codeLabel(code: number) {
   return map[code] ?? "Weather";
 }
 
-function getThisWeekendLocalDates(now = new Date()) {
+function getThisWeekendLocalDates(now = getNow()) {
   // Return Date[] for this weekend in local TZ, only future-or-today days
   const tz = CHAPEL_HILL.tz;
   const localMidnight = new Date(
@@ -297,7 +298,7 @@ export type TodayHighLow = {
   summary: string;
 };
 
-function localDateYYYYMMDD(tz: string, d = new Date()) {
+function localDateYYYYMMDD(tz: string, d = getNow()) {
   const parts = new Intl.DateTimeFormat("en-US", {
     timeZone: tz,
     year: "numeric",

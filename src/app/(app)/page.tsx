@@ -1,13 +1,16 @@
 import { getRecommendations } from "@/lib/recommend";
 import { getTodayHighLow, getWeatherSummary } from "@/lib/weather";
 import { ActivityCard } from "@/components/ActivityCard";
+import { EventCard } from "@/components/EventCard";
 import { WeatherIcon } from "@/components/WeatherIcon";
+import { getEventsForNow } from "@/lib/events";
 
 export default async function Page() {
-  const [data, current, today] = await Promise.all([
+  const [data, current, today, events] = await Promise.all([
     getRecommendations("now"),
     getWeatherSummary("now"),
     getTodayHighLow(),
+    getEventsForNow(),
   ]);
   return (
     <div className="space-y-4">
@@ -29,6 +32,16 @@ export default async function Page() {
           </div>
         )}
       </section>
+      {!!events.length && (
+        <section className="space-y-3">
+          <h3 className="text-base font-medium">Happening Soon</h3>
+          <div className="space-y-3">
+            {events.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
+        </section>
+      )}
       <div className="space-y-3">
         {data.results.map((r) => (
           <ActivityCard

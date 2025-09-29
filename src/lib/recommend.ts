@@ -3,6 +3,7 @@ import { supaServer } from "@/lib/supabase";
 import { CHAPEL_HILL } from "@/constants/location";
 import { haversineMiles } from "@/lib/geo";
 import { getWeatherSummary, getWeekendForecast, getTodayHighLow } from "@/lib/weather";
+import { getNowMs } from "@/lib/clock";
 import { getDriveSeconds } from "@/lib/travel";
 import { closesWithinHours, getTodayHoursText, isOpenNow } from "@/lib/openHours";
 
@@ -76,15 +77,6 @@ export async function getRecommendations(when: When, limit = 5) {
   if (prefsRes.error) prefsRes = await supaServer.from("CategoryPref").select("*");
   const [weather, todayHL] = await Promise.all([getWeatherSummary(when), getTodayHighLow()]);
 
-  console.log("getRecommendations supabase", {
-    actsError: actsRes.error?.message,
-    actsCount: actsRes.data?.length ?? 0,
-    logsError: logsRes.error?.message,
-    logsCount: logsRes.data?.length ?? 0,
-    prefsError: prefsRes.error?.message,
-    prefsCount: prefsRes.data?.length ?? 0,
-  });
-
   let activityRows = actsRes.data ?? [];
   if (actsRes.error && /Unexpected non-whitespace character/.test(actsRes.error.message ?? "")) {
     const fallback = await fetchActivitiesFallback();
@@ -137,7 +129,7 @@ export async function getRecommendations(when: When, limit = 5) {
       if (weather.isCold && flags.has("indoor")) reasons.push("Cold: indoor");
 
       // Novelty: penalty if done recently, and lighter penalty by category
-      const now = Date.now();
+      const now = getNowMs();
       const lastAct = lastDoneByActivity.get(a.id)?.getTime();
       const lastType = lastDoneByType.get(a.type)?.getTime();
       const decayDays = TYPE_DECAY_DAYS[a.type] ?? 5;
@@ -215,12 +207,6 @@ export async function getRecommendations(when: When, limit = 5) {
     })
   );
 
-  console.log("getRecommendations counts", {
-    activities: activities.length,
-    withAvailability: withAvailability.length,
-    picked: picked.length,
-  });
-
   return { when, weather, results: enriched };
 }
 
@@ -232,50 +218,6 @@ export async function getWeekendRecommendations(limit = 6) {
   let prefsRes = await supaServer.from("category_prefs").select("*");
   if (prefsRes.error) prefsRes = await supaServer.from("CategoryPref").select("*");
   const weekend = await getWeekendForecast();
-
-  console.log("getWeekendRecommendations supabase", {
-    actsError: actsRes.error?.message,
-    actsCount: actsRes.data?.length ?? 0,
-    logsError: logsRes.error?.message,
-    logsCount: logsRes.data?.length ?? 0,
-    prefsError: prefsRes.error?.message,
-    prefsCount: prefsRes.data?.length ?? 0,
-  });
-
-  if (actsRes.error && process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE) {
-    try {
-      const res = await fetch(
-        `${process.env.SUPABASE_URL.replace(/\/$/, "")}/rest/v1/activities?select=*`,
-        {
-          headers: {
-            apikey: process.env.SUPABASE_SERVICE_ROLE,
-            Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE}`,
-            Accept: "application/json",
-          },
-        }
-      );
-      const text = await res.text();
-      console.error("raw activities response length", text.length);
-      console.error("raw activities response snippet", text.slice(0, 4000));
-      console.error("raw activities response tail", text.slice(-400));
-      const tail = text.slice(-200);
-      console.error("raw activities tail char codes", tail.split("").map((ch) => ch.charCodeAt(0)));
-      try {
-        JSON.parse(text);
-      } catch (err: any) {
-        const match = /position (\d+)/.exec(String(err?.message ?? ""));
-        const idx = match ? Number(match[1]) : -1;
-        if (idx >= 0) {
-          console.error("raw activities parse error at", idx, "char", text[idx], text.charCodeAt(idx));
-          console.error("raw activities error context", text.slice(Math.max(0, idx - 100), idx + 100));
-        } else {
-          console.error("raw activities parse error", err);
-        }
-      }
-    } catch (err) {
-      console.error("raw activities fetch failed", err);
-    }
-  }
 
   let activityRows = actsRes.data ?? [];
   if (actsRes.error && /Unexpected non-whitespace character/.test(actsRes.error.message ?? "")) {
@@ -324,7 +266,7 @@ export async function getWeekendRecommendations(limit = 6) {
       if (weekendCold && flags.has("indoor")) reasons.push("Cold: indoor");
 
       // Novelty
-      const now = Date.now();
+      const now = getNowMs();
       const lastAct = lastDoneByActivity.get(a.id)?.getTime();
       const lastType = lastDoneByType.get(a.type)?.getTime();
       const decayDays = TYPE_DECAY_DAYS[a.type] ?? 5;
@@ -389,11 +331,6 @@ export async function getWeekendRecommendations(limit = 6) {
       return { ...r, driveMinutes: mins, hoursText };
     })
   );
-
-  console.log("getWeekendRecommendations counts", {
-    activities: activities.length,
-    picked: picked.length,
-  });
 
   return { weekend, results: enriched };
 }

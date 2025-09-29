@@ -2,300 +2,300 @@
   {
     "name": "Hyper Kidz Indoor Playground (Durham)",
     "type": "indoor",
-    "description": "Colorful indoor play space with soft structures and LED floors. Safe for toddlers to climb, slide, and explore out of the weather.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 12,
-    "maxAgeMonths": null,
-    "durationMin": 90,
-    "weatherFlags": ["indoor"],
-    "costTier": 2,
-    "tags": ["indoor playground", "climbing", "LED floors"]
+    "openHoursJson": {
+      "mon": [["09:00","20:00"]],
+      "tue": [["09:00","20:00"]],
+      "wed": [["09:00","20:00"]],
+      "thu": [["09:00","20:00"]],
+      "fri": [["09:00","20:00"]],
+      "sat": [["09:00","20:00"]],
+      "sun": [["09:00","19:00"]]
+    }
   },
   {
     "name": "Morehead Planetarium (Chapel Hill)",
     "type": "museum",
-    "description": "Historic planetarium with short, toddler-friendly shows and star exhibits. Great for a calm, educational indoor outing.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 24,
-    "maxAgeMonths": null,
-    "durationMin": 90,
-    "weatherFlags": ["indoor"],
-    "costTier": 2,
-    "tags": ["planetarium", "shows"]
+    "openHoursJson": {
+      "mon": [],
+      "tue": [],
+      "wed": [["10:00","15:00"]],
+      "thu": [["10:00","15:00"]],
+      "fri": [["10:00","15:00"]],
+      "sat": [["10:00","18:00"]],
+      "sun": [["13:00","18:00"]]
+    }
   },
   {
     "name": "North Carolina Botanical Garden & Coker Arboretum (Chapel Hill)",
     "type": "walk",
-    "description": "Stroller-friendly garden paths with sensory plants and shaded nooks. Easy wandering and nature discovery for little ones.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 60,
-    "weatherFlags": ["outdoor", "shade"],
-    "costTier": 0,
-    "tags": ["stroller", "sensory plants"]
+    "openHoursJson": {
+      "mon": [["06:00","20:00"]],
+      "tue": [["06:00","20:00"],["09:00","17:00"]],
+      "wed": [["06:00","20:00"],["09:00","17:00"]],
+      "thu": [["06:00","20:00"],["09:00","17:00"]],
+      "fri": [["06:00","20:00"],["09:00","17:00"]],
+      "sat": [["06:00","20:00"],["09:00","17:00"]],
+      "sun": [["06:00","20:00"],["09:00","17:00"]]
+    }
   },
   {
     "name": "Sarah P. Duke Gardens (Durham)",
     "type": "walk",
-    "description": "Beautiful landscaped gardens with shaded walks and water features. Plenty of space for toddlers to toddle and observe.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 90,
-    "weatherFlags": ["outdoor", "shade", "water"],
-    "costTier": 0,
-    "tags": ["gardens", "paths"]
+    "openHoursJson": {
+      "mon": [["08:00","19:00"]],
+      "tue": [["08:00","19:00"]],
+      "wed": [["08:00","19:00"]],
+      "thu": [["08:00","19:00"]],
+      "fri": [["08:00","19:00"]],
+      "sat": [["08:00","19:00"]],
+      "sun": [["08:00","19:00"]]
+    }
   },
   {
     "name": "Eno River State Park",
     "type": "walk",
-    "description": "Easy trails with river views and picnic spots. Perfect for short nature adventures and splashy edge exploration.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 90,
-    "weatherFlags": ["outdoor", "shade", "water"],
-    "costTier": 0,
-    "tags": ["river", "picnic"]
+    "openHoursJson": {
+      "mon": [["08:00","20:00"]],
+      "tue": [["08:00","20:00"]],
+      "wed": [["08:00","20:00"]],
+      "thu": [["08:00","20:00"]],
+      "fri": [["08:00","20:00"]],
+      "sat": [["08:00","20:00"]],
+      "sun": [["08:00","20:00"]]
+    }
   },
   {
     "name": "Duke Forest",
     "type": "walk",
-    "description": "Flat, wide forest roads ideal for short family walks. Quiet paths with lots of birds, leaves, and sticks to discover.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 60,
-    "weatherFlags": ["outdoor", "shade"],
-    "costTier": 0,
-    "tags": ["flat trails", "nature"]
+    "openHoursJson": {
+      "mon": [["06:00","20:00"]],
+      "tue": [["06:00","20:00"]],
+      "wed": [["06:00","20:00"]],
+      "thu": [["06:00","20:00"]],
+      "fri": [["06:00","20:00"]],
+      "sat": [["06:00","20:00"]],
+      "sun": [["06:00","20:00"]]
+    }
   },
   {
     "name": "Southern Village Green (Chapel Hill)",
     "type": "park",
-    "description": "Open green space in the heart of Southern Village. Great for running around, meetups, and occasional family concerts.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 60,
-    "weatherFlags": ["outdoor", "shade"],
-    "costTier": 0,
-    "tags": ["concerts", "open green"]
+    "openHoursJson": {
+      "mon": [["06:00","22:00"]],
+      "tue": [["06:00","22:00"]],
+      "wed": [["06:00","22:00"]],
+      "thu": [["06:00","22:00"]],
+      "fri": [["06:00","22:00"]],
+      "sat": [["06:00","22:00"]],
+      "sun": [["06:00","22:00"]]
+    }
   },
   {
     "name": "Chapel Hill Community Center Park",
     "type": "park",
-    "description": "Community park with playground, pool, and easy trails. Mix of indoor and outdoor options for flexible plans.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 90,
-    "weatherFlags": ["outdoor", "shade", "water"],
-    "costTier": 0,
-    "tags": ["playground", "pool", "trails", "gym"]
+    "openHoursJson": {
+      "mon": [["06:00","22:00"]],
+      "tue": [["06:00","22:00"]],
+      "wed": [["06:00","22:00"]],
+      "thu": [["06:00","22:00"]],
+      "fri": [["06:00","22:00"]],
+      "sat": [["06:00","22:00"]],
+      "sun": [["06:00","22:00"]]
+    }
   },
   {
     "name": "Hargraves Park & Playground (Chapel Hill)",
     "type": "park",
-    "description": "Classic neighborhood playground with shade and picnic shelter. Simple, fun equipment for toddlers to climb and slide.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 60,
-    "weatherFlags": ["outdoor", "shade"],
-    "costTier": 0,
-    "tags": ["playground", "picnic"]
+    "openHoursJson": {
+      "mon": [["06:00","22:00"]],
+      "tue": [["06:00","22:00"]],
+      "wed": [["06:00","22:00"]],
+      "thu": [["06:00","22:00"]],
+      "fri": [["06:00","22:00"]],
+      "sat": [["06:00","22:00"]],
+      "sun": [["06:00","22:00"]]
+    }
   },
   {
     "name": "Homestead Aquatic Center (Chapel Hill)",
     "type": "indoor",
-    "description": "Indoor pool that often offers toddler-friendly swim times. A good option for active play regardless of weather.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 12,
-    "maxAgeMonths": null,
-    "durationMin": 60,
-    "weatherFlags": ["indoor", "water"],
-    "costTier": 1,
-    "tags": ["toddler swim"]
+    "openHoursJson": {
+      "mon": [["06:00","20:30"]],
+      "tue": [["06:00","20:30"]],
+      "wed": [["06:00","20:30"]],
+      "thu": [["06:00","20:30"]],
+      "fri": [["06:00","20:30"]],
+      "sat": [["09:00","19:00"]],
+      "sun": [["12:00","19:00"]]
+    }
   },
   {
     "name": "Durham Central Park + Farmers’ Market",
     "type": "market",
-    "description": "Lively market with open lawns and occasional family activities. Toddlers can explore sights, sounds, and snacks.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 90,
-    "weatherFlags": ["outdoor", "shade"],
-    "costTier": 0,
-    "tags": ["market", "family"]
+    "openHoursJson": {
+      "mon": [],
+      "tue": [],
+      "wed": [["15:00","18:00"]],
+      "thu": [],
+      "fri": [],
+      "sat": [["08:00","12:00"]],
+      "sun": []
+    }
   },
   {
     "name": "Durham Museum of Life + Science",
     "type": "museum",
-    "description": "Large indoor/outdoor science museum with a train, butterfly house, and farmyard. Lots of hands-on areas suited for toddlers.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 12,
-    "maxAgeMonths": null,
-    "durationMin": 120,
-    "weatherFlags": ["indoor", "outdoor", "water"],
-    "costTier": 3,
-    "tags": ["train", "butterfly", "farmyard"]
+    "openHoursJson": {
+      "mon": [],
+      "tue": [["10:00","17:00"]],
+      "wed": [["10:00","17:00"]],
+      "thu": [["10:00","17:00"]],
+      "fri": [["10:00","17:00"]],
+      "sat": [["10:00","17:00"]],
+      "sun": [["10:00","17:00"]]
+    }
   },
   {
     "name": "Piedmont Wildlife Center (Durham)",
     "type": "walk",
-    "description": "Trails and wildlife education programs in a wooded setting. Gentle hikes and nature encounters for curious kids.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 12,
-    "maxAgeMonths": null,
-    "durationMin": 90,
-    "weatherFlags": ["outdoor", "shade"],
-    "costTier": 1,
-    "tags": ["wildlife", "programs"]
+    "openHoursJson": {
+      "mon": [["08:00","19:00"]],
+      "tue": [["08:00","19:00"]],
+      "wed": [["08:00","19:00"]],
+      "thu": [["08:00","19:00"]],
+      "fri": [["08:00","19:00"]],
+      "sat": [["08:00","19:00"]],
+      "sun": [["08:00","19:00"]]
+    }
   },
   {
     "name": "Spring Haven Farm (Chapel Hill)",
     "type": "farm",
-    "description": "Seasonal farm visits with baby goats, tractors, and themed events. A fun, tactile outing for little animal lovers.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 90,
-    "weatherFlags": ["outdoor", "shade"],
-    "costTier": 2,
-    "tags": ["goats", "tractors", "seasonal"]
+    "openHoursJson": {
+      "mon": [],
+      "tue": [],
+      "wed": [["10:00","18:00"]],
+      "thu": [["10:00","18:00"]],
+      "fri": [["10:00","18:00"]],
+      "sat": [["10:00","18:00"]],
+      "sun": [["10:00","18:00"]]
+    }
   },
   {
     "name": "1870 Farm (Chapel Hill)",
     "type": "farm",
-    "description": "Hands-on farm experience with pony rides and animal petting. Friendly staff and spaces designed for young children.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 90,
-    "weatherFlags": ["outdoor", "shade"],
-    "costTier": 2,
-    "tags": ["pony rides", "animals"]
+    "openHoursJson": {
+      "mon": [["10:00","13:00"]],
+      "tue": [["10:00","13:00"]],
+      "wed": [["10:00","13:00"]],
+      "thu": [["10:00","13:00"]],
+      "fri": [["10:00","13:00"]],
+      "sat": [["10:00","13:00"]],
+      "sun": [["10:00","13:00"]]
+    }
   },
   {
     "name": "Maple View Farm Ice Cream (Hillsborough)",
     "type": "treat",
-    "description": "Local ice cream with sweeping farm views. Easy stop for a treat and a short stroll.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 45,
-    "weatherFlags": ["outdoor", "shade"],
-    "costTier": 1,
-    "tags": ["ice cream", "views"]
+    "openHoursJson": {
+      "mon": [["12:00","20:00"]],
+      "tue": [["12:00","20:00"]],
+      "wed": [["12:00","20:00"]],
+      "thu": [["12:00","20:00"]],
+      "fri": [["12:00","21:00"]],
+      "sat": [["12:00","21:00"]],
+      "sun": [["12:00","21:00"]]
+    }
   },
   {
     "name": "Tinkergarten Outdoor Classes",
     "type": "class",
-    "description": "Guided outdoor classes focused on play-based learning. Parents join in as toddlers explore nature and simple activities.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 18,
-    "maxAgeMonths": null,
-    "durationMin": 60,
-    "weatherFlags": ["outdoor", "shade"],
-    "costTier": 2,
-    "tags": ["outdoor class"]
+    "openHoursJson": {
+      "mon": [],
+      "tue": [],
+      "wed": [],
+      "thu": [],
+      "fri": [],
+      "sat": [],
+      "sun": []
+    }
   },
   {
     "name": "My Little Farmer Programs (Durham/Chapel Hill)",
     "type": "class",
-    "description": "Caregiver-and-me farm sessions with gentle animals and farm play. Structured yet relaxed activities geared to toddlers.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 18,
-    "maxAgeMonths": null,
-    "durationMin": 60,
-    "weatherFlags": ["outdoor", "shade"],
-    "costTier": 2,
-    "tags": ["farm play", "animals"]
+    "openHoursJson": {
+      "mon": [],
+      "tue": [],
+      "wed": [],
+      "thu": [],
+      "fri": [],
+      "sat": [],
+      "sun": []
+    }
   },
   {
     "name": "Library Storytimes (Orange/Durham Co.)",
     "type": "library",
-    "description": "Free toddler storytimes with songs, simple crafts, and social time. A welcoming indoor option that’s easy to drop into.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 45,
-    "weatherFlags": ["indoor"],
-    "costTier": 0,
-    "tags": ["storytime"]
+    "openHoursJson": {
+      "mon": [],
+      "tue": [],
+      "wed": [],
+      "thu": [],
+      "fri": [],
+      "sat": [],
+      "sun": []
+    }
   },
   {
     "name": "Durham Bulls Baseball Games",
     "type": "sports",
-    "description": "Family-friendly minor league games with music, mascots, and snacks. Stadium energy keeps toddlers engaged between innings.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 120,
-    "weatherFlags": ["outdoor"],
-    "costTier": 2,
-    "tags": ["baseball", "family"]
+    "openHoursJson": {
+      "mon": [],
+      "tue": [],
+      "wed": [],
+      "thu": [],
+      "fri": [],
+      "sat": [],
+      "sun": []
+    }
   },
   {
     "name": "The Forest Theatre (Chapel Hill)",
     "type": "theater",
-    "description": "Stone amphitheater nestled in the woods with kid-friendly performances. Short walks and lots of steps to explore.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 90,
-    "weatherFlags": ["outdoor", "shade"],
-    "costTier": 0,
-    "tags": ["amphitheater", "performances"]
+    "openHoursJson": {
+      "mon": [["06:00","20:00"]],
+      "tue": [["06:00","20:00"]],
+      "wed": [["06:00","20:00"]],
+      "thu": [["06:00","20:00"]],
+      "fri": [["06:00","20:00"]],
+      "sat": [["06:00","20:00"]],
+      "sun": [["06:00","20:00"]]
+    }
   },
   {
     "name": "Northgate Park (Durham)",
     "type": "park",
-    "description": "Neighborhood park with toddler playground, paved paths, and a duck pond. Shady and easy for quick play sessions.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 60,
-    "weatherFlags": ["outdoor", "shade", "water"],
-    "costTier": 0,
-    "tags": ["playground", "duck pond"]
+    "openHoursJson": {
+      "mon": [["06:00","20:00"]],
+      "tue": [["06:00","20:00"]],
+      "wed": [["06:00","20:00"]],
+      "thu": [["06:00","20:00"]],
+      "fri": [["06:00","20:00"]],
+      "sat": [["06:00","20:00"]],
+      "sun": [["06:00","20:00"]]
+    }
   },
   {
     "name": "Eastgate Park & Playground (Chapel Hill)",
     "type": "park",
-    "description": "Fenced, toddler-friendly playground with simple equipment. A safe, contained spot for short outdoor play.",
-    "lat": null,
-    "lng": null,
-    "minAgeMonths": 0,
-    "maxAgeMonths": null,
-    "durationMin": 60,
-    "weatherFlags": ["outdoor", "shade"],
-    "costTier": 0,
-    "tags": ["fenced playground", "toddler friendly"]
+    "openHoursJson": {
+      "mon": [["06:00","20:00"]],
+      "tue": [["06:00","20:00"]],
+      "wed": [["06:00","20:00"]],
+      "thu": [["06:00","20:00"]],
+      "fri": [["06:00","20:00"]],
+      "sat": [["06:00","20:00"]],
+      "sun": [["06:00","20:00"]]
+    }
   }
 ]

@@ -2,12 +2,15 @@ import { getWeekendForecast } from "@/lib/weather";
 import { getWeekendRecommendations } from "@/lib/recommend";
 import { WeatherIcon } from "@/components/WeatherIcon";
 import { ActivityCard } from "@/components/ActivityCard";
+import { EventCard } from "@/components/EventCard";
 import { getHoursForWeekday, weekdayShortName } from "@/lib/openHours";
+import { getEventsForWeekend } from "@/lib/events";
 
 export default async function WeekendPage() {
-  const [weekend, recs] = await Promise.all([
+  const [weekend, recs, events] = await Promise.all([
     getWeekendForecast(),
     getWeekendRecommendations(),
+    getEventsForWeekend(),
   ]);
   return (
     <div className="space-y-4">
@@ -31,6 +34,16 @@ export default async function WeekendPage() {
                 <div className="text-xs text-gray-600 mt-1">{d.summary}</div>
                 <div className="text-xs text-gray-600">Rain: {Math.round(d.precipProbMax)}%</div>
               </div>
+            ))}
+          </div>
+        </section>
+      )}
+      {!!events.length && (
+        <section className="space-y-3">
+          <h3 className="text-base font-medium">Weekend Events</h3>
+          <div className="space-y-3">
+            {events.map((event) => (
+              <EventCard key={event.id} event={event} />
             ))}
           </div>
         </section>

@@ -1,4 +1,5 @@
 import { CHAPEL_HILL } from "@/constants/location";
+import { getNow } from "@/lib/clock";
 
 export type HoursSpec = {
   mon?: [string, string][];
@@ -13,17 +14,18 @@ export type HoursSpec = {
 const dayKeys = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"] as const;
 
 function getLocalNowParts() {
+  const now = getNow();
   const parts = new Intl.DateTimeFormat("en-US", {
     timeZone: CHAPEL_HILL.tz,
     weekday: "short",
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
-  }).formatToParts(new Date());
+  }).formatToParts(now);
   const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "";
   const weekdayStr = get("weekday");
   const weekdayMap: Record<string, number> = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
-  const weekday = weekdayMap[weekdayStr] ?? new Date().getDay();
+  const weekday = weekdayMap[weekdayStr] ?? now.getDay();
   const hour = parseInt(get("hour") || "0", 10);
   const minute = parseInt(get("minute") || "0", 10);
   return { weekday, hour, minute };
